@@ -4,13 +4,13 @@
         <div class="row">
             <div class="col-sm text-left">
               <p style='float: left; margin-top: 12px; margin-left: 25px; font-size: 28px; color: #f0447d;'>
-                  ProtonCMS
+                  <img src="{{ asset('content/logo.svg') }}"> ProtonCMS
                 </p>
             </div>
             <div class="col-sm ">
                 <p style='float: right; margin-top: 12px; margin-right: 25px;'>
                   user : admin
-                  <button type="button" class="button-logout" style='margin-left: 25px; margin-bottom: 7px;'>Logout</button>
+                  <button type="button" class="button-logout">Logout</button>
                 </p>
             </div>
         </div>
