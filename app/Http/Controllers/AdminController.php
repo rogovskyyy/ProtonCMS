@@ -17,15 +17,15 @@ class AdminController extends Controller
     public function login(Request $request) {
         if($request->input('username') == "admin" && $request->input('password') == "123") {
             $request->session()->put('admin_logged', 1);
-            return redirect('/admin');
+            return redirect('/proton');
         }
-        return redirect('/admin');
+        return redirect('/proton');
     }
 
     public function logout(Request $request) {
         if($request->session()->has('admin_logged')) {
             $request->session()->flush();
-            return redirect('/admin');
+            return redirect('/proton');
         }
     }
 }

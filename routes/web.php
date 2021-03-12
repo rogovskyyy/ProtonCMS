@@ -17,13 +17,20 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('index.index');
+    return view('admin_template.index');
 });
 
-Route::get('/admin', [AdminController::class, 'isLogged']);
+Route::get('/login', function() {
+    return view('admin_template.login');
+});
 
-Route::get('/admin/template', [EditHtmlController::class, 'getContent']);
-Route::post('/admin/template/update', [EditHtmlController::class, 'setContent']);
-
-Route::post('/admin/login', [AdminController::class, 'login']);
-Route::post('/admin/logout', [AdminController::class, 'logout']);
+//Route::group(['prefix'=>'proton','as'=>'proton'], function(){
+//
+//    Route::get('/', [AdminController::class, 'isLogged']);
+//    
+//    Route::get('/template', [EditHtmlController::class, 'getContent']);
+//    Route::post('/template/update', [EditHtmlController::class, 'setContent']);
+//    
+//    Route::post('/login', [AdminController::class, 'login']);
+//    Route::post('/logout', [AdminController::class, 'logout']);
+//});
