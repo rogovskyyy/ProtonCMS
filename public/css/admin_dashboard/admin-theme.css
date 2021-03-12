@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600;700&display=swap');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background: rgb(238,70,140);
+  background: linear-gradient(90deg, rgba(238,70,140,1) 0%, rgba(240,68,125,1) 50%, rgba(241,66,116,1) 100%);
+  font-size: 18px;
+}
+
+.container {
+  height: 65px;
+  margin-top: 25px;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56); 
+  box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56);
+}
+
+.side-panel {
+  margin-top: 25px;
+  margin-left: -13px;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56); 
+  box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56);
+}
+
+.main-panel {
+  margin-top: 25px;
+  margin-right: -12px;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56); 
+  box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56);
+}
+
+.padder {
+  list-style-type: none;
+  
+}
+
+li {
+  color: #f0447d;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 35px;
+  margin-left: 8px;
+}
+
+li:hover {
+  background-color: #e25555;
+  border-radius: 12px;
+  background: rgb(238,70,140);
+  background: linear-gradient(90deg, rgba(238,70,140,1) 0%, rgba(240,68,125,1) 50%, rgba(241,66,116,1) 100%);
+  color: white;
+  margin-right: 13px;
+}
+
+ul {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.footer-panel {
+  height: 55px;
+  margin-top: 25px;
+  margin-left: -15px;
+  margin-right: -12px;
+  border-radius: 10px;
+  background-color: white;
+  -webkit-box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56); 
+  box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56);
+  margin-bottom: 25px;
+}
+
+.footer-panel-content {
+  padding-top: 12px;
+  margin-left: 33px;
+}
+
+.main-panel-content {
+  padding: 25px 45px 25px 45px;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.button-logout {
+  width: 125px;
+  height: 35px;
+  border-radius: 12px;
+  background: rgb(238,70,140);
+  background: linear-gradient(90deg, rgba(238,70,140,1) 0%, rgba(240,68,125,1) 50%, rgba(241,66,116,1) 100%);
+  font-size: 16px;
+  color: white;
+  border: 0;
+} 
+
+a {
+  text-decoration: none; 
+}
+
+.push-to-left-panel {
+  margin-left: -28px;
+}
+.push-to-left-panel i {
+  margin-right: 20px;
+}

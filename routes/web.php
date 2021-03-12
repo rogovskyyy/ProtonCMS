@@ -17,7 +17,11 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('default.index');
+    return view('admin_template.index');
+});
+
+Route::get('/login', function() {
+    return view('admin_template.login');
 });
 
 //Route::group(['prefix'=>'proton','as'=>'proton'], function(){
