@@ -10,7 +10,7 @@
             <div class="col-sm ">
                 <p style='float: right; margin-top: 14px; margin-right: 30px;'>
                   user : admin
-                  <button type="button" class="button-logout" style='margin-left: 10px;'>Logout</button>
+                  <button type="button" class="button-logout">Sign out</button>
                 </p>
             </div>
         </div>
