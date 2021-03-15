@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
+    
         <!-- Meta -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,9 +19,12 @@
        
         <!-- Awesome fonts -->
         <script src="https://kit.fontawesome.com/a5245399c2.js" crossorigin="anonymous"></script>
+
         <!-- Vue.js -->
         <script src="https://unpkg.com/vue@next"></script>
+
         <!-- Title -->
         <title>ProtonCMS Dashboard</title>
+
     </head>
     <body>

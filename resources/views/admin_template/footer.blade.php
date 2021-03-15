@@ -2,13 +2,14 @@
                 <div class='footer-panel'>
                     <div class="row">
                         <div class="col-sm">   
-                            <p style='float: left;  margin-top: 15px; margin-left: 25px; font-size: 14px; color: #f0447d;'>
-                                &copy; {{ now()->year }} Faculty of Physics - Adam Mickiewicz University in Poznań
+                            <p style='float: left;  margin-top: 5px; margin-left: 25px; font-size: 14px; color: #f0447d;'>
+                                &copy; {{ now()->year }} Bartosz Rogowski<br />
+                                Powered by ProtonCMS - v15.03.2021.173900
                             </p>          
                         </div>
                         <div class="col-sm">
                             <p style='float: right; margin-top: 15px; margin-right: 25px; font-size: 14px;'>
-                                Made with <span style="color: #e25555;">&#9829;</span> by Bartosz Rogowski
+                                Made with <span style="color: #e25555;">&#9829;</span>
                             </p>
                         </div>
                     </div>
