@@ -35,20 +35,17 @@
 <div class='box'>
     <div class='content'>
         <div class='text-center'><img src="{{ asset('content/logo.svg') }}" style='width: 65px; height: 65px;'></div>
-        <form>
+        <form action='/pcms-admin/action:login' method='post'>
+        @csrf
         <h2>Login</h2><br />
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" name="username">
             </div><br />
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div><br />
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input " id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Remember me</label>
-            </div><br />
+                <input type="password" class="form-control" name="password">
+            </div><br /><br />
             <button type="submit" class="btn btn-primary button-login-style" style='width: 100%'>Login</button>
         </form>
     </div>
