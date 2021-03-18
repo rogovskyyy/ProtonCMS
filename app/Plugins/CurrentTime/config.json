@@ -1,6 +1,6 @@
 {
-    "name" : "Hello, World!",
-    "description" : "Bla bla bla",
+    "name" : "Current Time",
+    "description" : "Displays current time",
     "author" : "Bartosz Rogowski",
     "version" : "v1.0"
 }
