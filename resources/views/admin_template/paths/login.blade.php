@@ -1,39 +1,6 @@
 @include('admin_template.header')
-<style>
-
-    .box {
-        width: 25%;
-        margin: auto;
-        background: white;
-        border-radius: 12px;
-        margin-top: 125px;
-        -webkit-box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56); 
-        box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56);
-    }
-
-    .content {
-        padding: 30px 30px 30px 30px;
-    }
-
-    .button-login-style { 
-        background: rgb(238,70,140);
-        background: linear-gradient(90deg, rgba(238,70,140,1) 0%, rgba(240,68,125,1) 50%, rgba(241,66,116,1) 100%);
-        border-radius: 12px;
-        border: none;
-    }
-
-    .button-login-style:hover { 
-        background: rgb(238,70,140);
-        background: linear-gradient(90deg, rgba(238,70,140,1) 0%, rgba(240,68,125,1) 50%, rgba(241,66,116,1) 100%);
-        border-radius: 12px;
-        border: none;
-        -webkit-box-shadow: 2px 2px 11px -3px rgba(0,0,0,0.56); 
-        box-shadow: 2px 2px 11px -3px rgba(0,0,0,0.56);
-    }
-
-</style>
-<div class='box'>
-    <div class='content'>
+<div class='login-box'>
+    <div class='login-container'>
         <div class='text-center'><img src="{{ asset('content/logo.svg') }}" style='width: 65px; height: 65px;'></div>
         <form action='/pcms-admin/action:login' method='post'>
         @csrf

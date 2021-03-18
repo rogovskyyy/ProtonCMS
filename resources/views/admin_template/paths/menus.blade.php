@@ -1,10 +1,11 @@
 @include('admin_template.template')
 
-<div class="col-sm-9">
   <div class='main-panel'>
     <p style='float: right; margin-top: 7px; margin-right: 25px;'>
       <div class='main-panel-content'>
-        <h1> Menus </h1> <br />
+        <div class='main-content-header'>
+          <h1>Menus</h1>
+        </div><br />
         <table class="table table-sm table-borderless">
             <thead>
               <tr>
@@ -26,6 +27,7 @@
       </div>
     </p>
   </div>
+</div>
 </div>
 
 @include('admin_template.footer')
