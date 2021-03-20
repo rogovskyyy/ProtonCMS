@@ -10,9 +10,9 @@ class SessionController extends Controller {
 
     public static function view_login(Request $request) {
         if($request->session()->has('user')) {
-            return redirect('/pcms-admin');
+            return redirect('/dashboard');
         }
-        return view('admin_template.paths.login');
+        return view('admin_template.login');
     }
 
     public static function action_login(Request $request) {
@@ -31,9 +31,9 @@ class SessionController extends Controller {
                 'group' => $result[0]["groups"]
             ]);
 
-            return redirect('/pcms-admin');
+            return redirect('/dashboard');
         }
-        return redirect('/pcms-admin/login');
+        return redirect('/dashboard/login');
     }
 
     public static function action_logout(Request $request) {
@@ -41,6 +41,6 @@ class SessionController extends Controller {
             $request->session()->forget(['user', 'key', 'group']);
             $request->session()->flush();
         }
-        return redirect('/pcms-admin/login');
+        return redirect('/dashboard/login');
     }
 }

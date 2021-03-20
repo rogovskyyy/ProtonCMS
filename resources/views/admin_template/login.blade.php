@@ -2,7 +2,7 @@
 <div class='login-box'>
     <div class='login-container'>
         <div class='text-center'><img src="{{ asset('content/logo.svg') }}" style='width: 65px; height: 65px;'></div>
-        <form action='/pcms-admin/action:login' method='post'>
+        <form action='/dashboard/action:login' method='post'>
         @csrf
         <h2>Login</h2><br />
             <div class="form-group">

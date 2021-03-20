@@ -1,6 +1,6 @@
 {
     "name" : "Hello, World!",
-    "description" : "Bla bla bla",
+    "description" : "Default plugin to greet with the world",
     "author" : "Bartosz Rogowski",
     "version" : "v1.0"
 }
