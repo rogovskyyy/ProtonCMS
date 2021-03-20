@@ -8,14 +8,21 @@ use Illuminate\Support\Facades\DB;
 
 class SessionController extends Controller {
 
-    public static function view_login(Request $request) {
+    public static function view(Request $request) {
         if($request->session()->has('user')) {
             return redirect('/dashboard');
         }
         return view('admin_template.login');
     }
 
-    public static function action_login(Request $request) {
+    public static function has_session(Request $request) : bool {
+        if($request->session()->has('user'))
+            return true;
+        else
+            return false;
+    }
+
+    public static function login(Request $request) {
         $result = DB::select('select * from users where users.username = :username AND users.password = :password limit 1', [
             "username" => $request->input('username'),
             "password" => hash('sha256', "($$$!^$#Y!@RHDF!@$&FWQ)*&".$request->input('password'))
@@ -28,7 +35,6 @@ class SessionController extends Controller {
             session([
                 'user' => $request->input('username'),
                 'key' => hash('sha256', "(*$)!(ID()AS)DK!@#".$request->input('username')."MMAS_!@)MD)AM"),
-                'group' => $result[0]["groups"]
             ]);
 
             return redirect('/dashboard');
@@ -36,9 +42,9 @@ class SessionController extends Controller {
         return redirect('/dashboard/login');
     }
 
-    public static function action_logout(Request $request) {
+    public static function logout(Request $request) {
         if($request->session()->has('user')) {
-            $request->session()->forget(['user', 'key', 'group']);
+            $request->session()->forget(['user', 'key']);
             $request->session()->flush();
         }
         return redirect('/dashboard/login');
