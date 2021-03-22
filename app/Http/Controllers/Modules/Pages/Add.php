@@ -10,7 +10,12 @@ class Add extends \App\Http\Controllers\Modules\Pages {
     public static function view(Request $request) {
         if(\App\Http\Controllers\SessionController::has_session($request)) {
             $result = DB::select('select * from menus m where not exists (select null from pages p where p.path = m.pathway) and m.type = :type', ["type" => 'page']);
+
+            if(count($result) < 1) {
+                $result = [];
+            }
             return view('admin_template.pages.add', ["data_list" => $result]);
+            
         } else {
             return redirect('/dashboard/login');
         }   

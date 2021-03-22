@@ -4,6 +4,6 @@ namespace App\Plugins\HelloWorld;
 
 class HelloWorld {
     public static function main() {
-        return "Hello, World! xD <br />";
+        return "Hello, World!<br />";
     }
 }

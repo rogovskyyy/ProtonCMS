@@ -5,19 +5,28 @@
         @csrf
         <h2>Editing pages</h2><br />
             <div class="form-group">
-                <label for="exampleInputEmail1">Menu name (e.g. Post, Blog)</label>
-                <input type="text" class="form-control" aria-describedby="emailHelp" name="path" value='{{ $path }}'>
+                <label for="exampleInputEmail1">Page path (e.g. /home, /blog)</label>
+                <select class="form-control" aria-describedby="emailHelp"  name="new_path">>
+                    @php
+                        for($i = 0; $i <= count($data) - 1; $i++) {
+                            echo "<option value='".$data[$i]->name."'>";
+                            echo $data[$i]->name." ( ".$data[$i]->path.")";
+                            echo '</option>';
+                        }
+                    @endphp
+                </select>
             </div><br />
+            <input type='hidden' name='current_path' value='{{ $data[0]->path }}'>
             <div class="form-group">
-                <label for="exampleInputEmail1">Path (e.g. /post, /blog) </label>
-                <input type="text" readonly  class="form-control" aria-describedby="emailHelp"  name="filename" value='{{ $filename }}'>
+                <label for="exampleInputEmail1">File path (e.g. /home.blade.php) </label>
+                <input type="text" class="form-control" aria-describedby="emailHelp"  name="filename" value='{{ $data[0]->filename }}'>
             </div><br />       
             <div class="row">
                 <div class="col-sm">
                     <button type="submit" class="btn btn-primary button-login-style" style='width: 100%'>Update</button>
                 </div>
                 <div class="col-sm">
-                    <a href='/dashboard#menus'><div class="btn btn-primary button-login-style" style='width: 100%'>Cancel</div></a>
+                    <a href='/dashboard#pages'><div class="btn btn-primary button-login-style" style='width: 100%'>Cancel</div></a>
                 </div>
             </div>
             </div>

@@ -27,21 +27,6 @@
 						</a>
 					</div>
 					<div class='push-to-left-panel'>
-						<a href='#comments'>
-							<li><i class="fas fa-comments"></i> Comments</li>
-						</a>
-					</div>
-					<div class='push-to-left-panel'>
-						<a href='#categories'>
-							<li><i class="fas fa-th-list"></i> Categories</li>
-						</a>
-					</div>
-					<div class='push-to-left-panel'>
-						<a href='#tags'>
-							<li><i class="fas fa-tags"></i> Tags</li>
-						</a>
-					</div>
-					<div class='push-to-left-panel'>
 						<a href='#themes'>
 							<li><i class="fas fa-border-style"></i> Themes</li>
 						</a>
@@ -52,23 +37,8 @@
 						</a>
 					</div>
 					<div class='push-to-left-panel'>
-						<a href='#widgets'>
-							<li><i class="fas fa-puzzle-piece"></i> Widgets</li>
-						</a>
-					</div>
-					<div class='push-to-left-panel'>
-						<a href='#media-lib'>
-							<li><i class="fas fa-photo-video"></i> Media Library</li>
-						</a>
-					</div>
-					<div class='push-to-left-panel'>
 						<a href='#database'>
 							<li><i class="fas fa-database"></i> Database</li>
-						</a>
-					</div>
-					<div class='push-to-left-panel'>
-						<a href='#tools'>
-							<li><i class="fas fa-user-cog"></i> Tools</li>
 						</a>
 					</div>
 					<div class='push-to-left-panel'>
@@ -78,7 +48,7 @@
 					</div>
 				</ul>
 				<br />
-				<div style='text-align: center; font-size: 12px; padding-bottom: 15px;'> Powered by ProtonCMS - v18.03.2021.114400
+				<div style='text-align: center; font-size: 12px; padding-bottom: 15px;'> Powered by ProtonCMS - v22.03.2021.162330
 					<br /> &copy; {{ now()->year }} <a href='https://github.com/rogovskyyy/' style='color: var(--default-font-color)'>rogovskyyy</a> - Made with <span style="color: #e25555;">&#9829;</span>
 					<br /> </div>
 			</div>

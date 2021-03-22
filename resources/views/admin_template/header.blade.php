@@ -26,6 +26,15 @@
 	<!-- Vue.js -->
 	<script src="https://unpkg.com/vue@next"></script>
 
+	<!-- Main Quill library -->
+	<script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+	<script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+	<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+	<!-- highlight.js library -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+
 	<!-- Title -->
 	<title>ProtonCMS Dashboard</title>
 	
