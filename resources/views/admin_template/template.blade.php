@@ -62,11 +62,6 @@
 						</a>
 					</div>
 					<div class='push-to-left-panel'>
-						<a href='#ug'>
-							<li><i class="fas fa-users"></i> Users & Groups</li>
-						</a>
-					</div>
-					<div class='push-to-left-panel'>
 						<a href='#database'>
 							<li><i class="fas fa-database"></i> Database</li>
 						</a>

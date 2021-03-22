@@ -11,6 +11,8 @@ class Posts extends Controller
         $result = DB::select('select * from posts');
         if(count($result) > 0) {
             return $result;
+        } else {
+            return [];
         }
     }
 }

@@ -7,9 +7,13 @@
 	<div class='main-panel-content' id='menus'>
 		<div class='main-panel-content-box'>
 			<h1>Menus</h1>
-			<div class='add-button'>
-				<div class='items'> <i class="fas fa-plus" style='font-size: 12px;'></i> Add </div>
-			</div>
+			<a href='/dashboard/action:menus:add' style='text-decoration: none; color: white;'>
+				<div class='add-button'>
+					<div class='items'>
+						<i class="fas fa-plus" style='font-size: 12px;'></i> Add
+					</div>
+				</div>
+			</a>
 		</div>
 		<br />
 		<div class="row"> @foreach(App\Http\Controllers\Modules\Menus::action_get_all_menus() as $items)
@@ -19,38 +23,93 @@
 						<h4>{{ $items->name }}</h4>
 						<url-path>{{ $items->pathway }}</url-path>
 						<br />
-						<div class='menu-type'> @php $color = ['red', 'yellow']; $txt = ''; if($items->type == 'Page') { echo '
-							<red>'.$items->type.'</red>'; } else if ($items->type == 'Post') { echo '
+						<div class='menu-type'> @php $color = ['red', 'yellow']; $txt = ''; if($items->type == 'page' ) { echo '
+							<red>'.$items->type.'</red>'; } else if ($items->type == 'post') { echo '
 							<blue>'.$items->type.'</blue>'; } @endphp </div>
-						<description>Homepage of the project</description>
+						<description>{{ $items->description }}</description>
 						<actions>
-							<div class='centred-elements'>
-								<div class='circle-button'> <i class="fas fa-edit"></i> </div>
-								<div class='circle-button'> <i class="far fa-trash-alt"></i> </div>
+							<div class="row">
+								<div class="col-6">
+
+									@php
+										echo "<a href='/dashboard/action:menus:update/".$items->name."'>";
+									@endphp
+
+									<button class="button-styler" style='border: none;'><i class="fas fa-edit"></i> Edit</button>
+								</a>
+								</div>
+								<div class="col-6">
+								<form action='/dashboard/action:menus:delete' method='post'>
+								@csrf
+									@php
+										echo "<input type='hidden' name='pathway' value='".$items->pathway."'>";
+									@endphp
+
+									<button type="submit" class="button-styler" style='border: none;'><i class="far fa-trash-alt"></i> Delete</button>
+									
+								</form>
+							</div>
 							</div>
 						</actions>
-						<br /> </div>
+						<br /> 
+					</div>
 				</div>
-			</div> @endforeach </div>
+			</div> 
+			@endforeach
+		</div>
 	</div>
 </div>
 <div class='main-panel'>
 	<div class='main-panel-content' id='pages'>
+		<div class='main-panel-content-box'>
 		<h1>Pages</h1>
+		<a href='/dashboard/action:pages:add' style='text-decoration: none; color: white;'>
+				<div class='add-button'>
+					<div class='items'>
+						<i class="fas fa-plus" style='font-size: 12px;'></i> Add
+					</div>
+				</div>
+			</a>
+		</div>
 		<br />
-		<table class="table table-sm table-borderless">
-			<thead>
-				<tr>
-					<th scope="col">path</th>
-					<th scope="col">filename</th>
-				</tr>
-			</thead>
-			<tbody> @foreach(App\Http\Controllers\Modules\Pages::action_get_all_pages() as $items)
-				<tr>
-					<td>{{ $items->path }}</td>
-					<td>{{ $items->filename }}</td>
-				</tr> @endforeach </tbody>
-		</table>
+		<div class="row"> @foreach(App\Http\Controllers\Modules\Pages::action_get_all_pages() as $items)
+			<div class="col-2">
+				<div class='main-panel-content-item'>
+					<div class='main-panel-content-item-padding'>
+						<h4>{{ $items->name }}</h4>
+						<url-path>attached to: {{ $items->path }}</url-path> <br />
+						<description>used file: {{ $items->filename }}</description>
+						<br />
+						<actions>
+							<div class="row">
+								<div class="col-6">
+
+									@php
+										echo "<a href='/dashboard/action:pages:update/".$items->name."'>";
+									@endphp
+
+									<button class="button-styler" style='border: none;'><i class="fas fa-edit"></i> Edit</button>
+								</a>
+								</div>
+								<div class="col-6">
+								<form action='/dashboard/action:pages:delete' method='post'>
+								@csrf
+									@php
+										echo "<input type='hidden' name='pathway' value='".$items->name."'>";
+									@endphp
+
+									<button type="submit" class="button-styler" style='border: none;'><i class="far fa-trash-alt"></i> Delete</button>
+									
+								</form>
+							</div>
+							</div>
+						</actions>
+						<br /> 
+					</div>
+				</div>
+			</div> 
+			@endforeach
+		</div>
 	</div>
 </div>
 <div class='main-panel'>
@@ -140,31 +199,6 @@
 	<div class='main-panel-content' id='media-lib'>
 		<h1>Media Library</h1>
 		<br /> Lorem Ipsum </div>
-</div>
-<div class='main-panel'>
-	<div class='main-panel-content' id='ug'>
-		<h1>Users & Groups</h1>
-		<br />
-		<table class="table table-sm table-borderless">
-			<thead>
-				<tr>
-					<th scope="col">username</th>
-					<th scope="col">email</th>
-					<th scope="col">group</th>
-					<th scope="col">action</th>
-				</tr>
-			</thead>
-			<tbody> @foreach(App\Http\Controllers\Modules\Users::action_get_all_users() as $user)
-				<tr>
-					<td>{{ $user->username }}</td>
-					<td>{{ $user->email }}</td>
-					<td>{{ $user->groups }}</td>
-					<td>
-						<button type="button" class="button-action">Small button</button>
-					</td>
-				</tr> @endforeach </tbody>
-		</table>
-	</div>
 </div>
 <div class='main-panel'>
 	<div class='main-panel-content' id='database'>

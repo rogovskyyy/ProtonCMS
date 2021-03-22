@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\EditHtmlController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\Modules\Menus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix'=>'dashboard','as'=>'dashboard'], function(){
+Route::group(['prefix'=>'dashboard','as'=>'dashboard'], function() {
 
+    /*      Main section        */
     Route::get('/', function(Request $request) {
         if($request->session()->has('user')) {
             return view('admin_template.index');
@@ -25,12 +28,36 @@ Route::group(['prefix'=>'dashboard','as'=>'dashboard'], function(){
         return redirect('/dashboard/login');
     });
 
+    /*      Login section        */
+    Route::get('login', [SessionController::class, 'view']);
 
-    Route::get('login', [SessionController::class, 'view_login']);
+    Route::post('action:login', [SessionController::class, 'login']);
 
-    Route::post('action:login', [SessionController::class, 'action_login']);
+    Route::post('action:logout', [SessionController::class, 'logout']);
 
-    Route::post('action:logout', [SessionController::class, 'action_logout']);
+
+    /*      Menu section        */
+    Route::get('action:menus:add', [\App\Http\Controllers\Modules\Menus\Add::class, 'view']);
+
+    Route::post('action:menus:add', [\App\Http\Controllers\Modules\Menus\Add::class, 'add']);
+
+    Route::get('action:menus:update/{name}', [\App\Http\Controllers\Modules\Menus\Update::class, 'view']);
+
+    Route::post('action:menus:update', [\App\Http\Controllers\Modules\Menus\Update::class, 'update']);
+
+    Route::post('action:menus:delete', [\App\Http\Controllers\Modules\Menus\Delete::class, 'delete']);
+
+
+    /*      Pages section        */
+    Route::get('action:pages:add', [\App\Http\Controllers\Modules\Pages\Add::class, 'view']);
+
+    Route::post('action:pages:add', [\App\Http\Controllers\Modules\Pages\Add::class, 'add']);
+    
+    Route::get('action:pages:update/{name}', [\App\Http\Controllers\Modules\Pages\Update::class, 'view']);
+    
+    Route::post('action:pages:update', [\App\Http\Controllers\Modules\Pages\Update::class, 'update']);
+    
+    Route::post('action:pages:delete', [\App\Http\Controllers\Modules\Pages\Delete::class, 'delete']);
 
 
 });
