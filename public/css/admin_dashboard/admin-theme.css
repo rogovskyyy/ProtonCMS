@@ -11,12 +11,20 @@
 body {
   /* font-family: 'Source Sans Pro', sans-serif;*/
   font-family: 'Nunito', sans-serif;
-  background-color: var(--bg-color);
-  background-image: var(--bg-image);
+  background-color: white;
   font-size: 18px;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
   user-select: none; /* Standard syntax */
+}
+
+.my-content {
+  width: 100%;
+  border-radius: 24px;
+  background-color: #f2f2f2;
+  padding: 30px 30px 30px 30px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 
 /*
@@ -42,9 +50,6 @@ body {
   margin-top: 25px;
   border-radius: 12px;
   background-color: var(--bg-color);
-  background-image: var(--bg-image);
-  -webkit-box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56); 
-  box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56);
   font-size: 14px;
 }
 
@@ -69,17 +74,12 @@ img {
   margin-top: 25px;
   border-radius: 10px;
   background-color: white;
-  -webkit-box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56); 
-  box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56);
 }
 
 .header {
   height: 55px;
-  margin-top: 25px;
   border-radius: var(--border-radius-size);
   background-color: white;
-  -webkit-box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56); 
-  box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56);
 }
 
 .side-panel {
@@ -87,18 +87,15 @@ img {
   margin-left: -13px;
   border-radius: var(--border-radius-size);
   background-color: white;
-  -webkit-box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56); 
-  box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56);
   top: 25px;
 }
 
 .main-panel {
-  margin-top: 35px;
+  margin-top: 5px;
+  margin-bottom: 35px;
   margin-right: -12px;
   border-radius: var(--border-radius-size);
   background-color: white;
-  -webkit-box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56); 
-  box-shadow: 4px 4px 22px -3px rgba(0,0,0,0.56);
   width: 100%;
 }
 
@@ -106,7 +103,6 @@ img {
   padding: 35px 55px 35px 55px;
   width: 100%;
   word-wrap: break-word;
-  margin-bottom: 15px;
 }
 
 .main-panel-content-box {
@@ -291,9 +287,7 @@ textarea {
   padding-top: 15px 15px 15px 15px;
 }
 
-#main, #pages{
-  padding-top: 25px;
-}
+
 
 table.custom_table {
     width: 100%;

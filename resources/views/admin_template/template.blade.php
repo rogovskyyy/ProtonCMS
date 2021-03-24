@@ -36,16 +36,6 @@
 							<li><i class="fas fa-plug"></i> Plugins</li>
 						</a>
 					</div>
-					<div class='push-to-left-panel'>
-						<a href='#database'>
-							<li><i class="fas fa-database"></i> Database</li>
-						</a>
-					</div>
-					<div class='push-to-left-panel'>
-						<a href='#settings'>
-							<li><i class="fas fa-cog"></i> Settings</li>
-						</a>
-					</div>
 				</ul>
 				<br />
 				<div style='text-align: center; font-size: 12px; padding-bottom: 15px;'> Powered by ProtonCMS - v22.03.2021.162330
@@ -54,10 +44,3 @@
 			</div>
 		</div>
 		<div class="col-sm-10">
-			<div class='header'>
-				<form action='/dashboard/action:logout' method='post'> @csrf
-					<p style='float: right; margin-top: 10px; margin-right: 30px;'> user : {{ Session::get('user') }}
-						<button type="submit" class="button-logout"><i class="fas fa-sign-out-alt" style='margin-right: 5px; padding-top: 5px;'></i>Sign out</button>
-					</p>
-				</form>
-			</div>
