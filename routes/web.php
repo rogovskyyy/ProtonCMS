@@ -93,4 +93,16 @@ Route::group(['prefix'=>'dashboard','as'=>'dashboard'], function() {
     Route::post('action:posts:update', [\App\Http\Controllers\Modules\Posts\Update::class, 'update']);
         
     Route::post('action:posts:delete', [\App\Http\Controllers\Modules\Posts\Delete::class, 'delete']);
+
+
+    /*      Themes section        */
+    Route::get('action:themes:add', [\App\Http\Controllers\Modules\Themes\Add::class, 'view']);
+
+    Route::post('action:themes:add', [\App\Http\Controllers\Modules\Themes\Add::class, 'add']);
+
+    Route::get('action:themes:update/{id}', [\App\Http\Controllers\Modules\Themes\Update::class, 'view']);
+
+    Route::post('action:themes:update', [\App\Http\Controllers\Modules\Themes\Update::class, 'update']);
+        
+    Route::post('action:themes:delete', [\App\Http\Controllers\Modules\Themes\Delete::class, 'delete']);
 });

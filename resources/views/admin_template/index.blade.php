@@ -1,9 +1,16 @@
 @include('admin_template.template')
-<div class='main-panel'>
-	<div class='main-panel-content' id='main'>
-		<h1>Admin dashboard</h1> <br />
+
+<div class='my-content'>
+	<div class='main-panel'>
+		<div class='main-panel-content' id='main'>
+		<h3>Welcome {{ Session::get('user') }}</h3>
+			<form action='/dashboard/action:logout' method='post'> @csrf
+					<button type="submit" class="button-logout" style='float: right; margin-top: -40px;'>
+						<i class="fas fa-sign-out-alt" style='margin-right: 5px; padding-top: 5px; font-size: 14px;'></i>Sign out</button>
+			</form>
+		</div>
 	</div>
-</div>
+
 <div class='main-panel'>
 	<div class='main-panel-content' id='menus'>
 		<div class='main-panel-content-box'>
@@ -105,7 +112,7 @@
 	</div>
 </div>
 <div class='main-panel'>
-	<div class='main-panel-content' id='posts'>
+	<div class='main-panel-content' id='pages'>
 		<div class='main-panel-content-box'>
 		<h1>Posts</h1>
 		<a href='/dashboard/action:posts:add' style='text-decoration: none; color: white;'>
@@ -153,10 +160,34 @@
 	</div>
 </div>
 <div class='main-panel'>
-	<div class='main-panel-content' id='themes'>
+	<div class='main-panel-content' id='pages'>
+		<div class='main-panel-content-box'>
 		<h1>Themes</h1>
-		<br /> 
-	</div>
+		<a href='/dashboard/action:themes:add' style='text-decoration: none; color: white;'>
+				<div class='add-button'>
+					<div class='items'>
+						<i class="fas fa-plus" style='font-size: 12px;'></i> Add
+					</div>
+				</div>
+			</a>
+		</div>
+		<br />
+		<table class="table table-sm table-borderless">
+			<thead>
+				<tr>
+					<th scope="col">theme</th>
+					<th scope="col">filename</th>
+					<th scope="col">update</th>
+					<th scope="col">delete</th>
+				</tr>
+			</thead>
+			<tbody> 
+				@php
+					App\Http\Controllers\Modules\Themes::get_all_files();
+				@endphp
+			</tbody>
+		</table>
+</div>
 </div>
 <div class='main-panel'>
 	<div class='main-panel-content' id='plugins'>
@@ -180,15 +211,6 @@
 				</tr> @endforeach </tbody>
 		</table></div>
 </div>
-<div class='main-panel'>
-	<div class='main-panel-content' id='database'>
-		<h1>Database</h1>
-		<br /> @php App\Http\Controllers\Modules\Database::is_connection(); @endphp </div>
-</div>
-<div class='main-panel'>
-	<div class='main-panel-content' id='settings'>
-		<h1>Settings</h1>
-		<br /> Lorem Ipsum </div>
 </div>
 </div>
 </div> @include('admin_template.footer')
