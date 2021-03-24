@@ -21,7 +21,7 @@
                 </select>
             </div><br />
             <div class="form-group">
-                <label for="exampleInputEmail1">Filename (e.g. <default_theme>/about.blade.php)</label>
+                <label for="exampleInputEmail1">Filename (e.g. about.blade.php)</label>
                 <input type="text" class="form-control" aria-describedby="emailHelp" name="filename">
 
             </div><br />        

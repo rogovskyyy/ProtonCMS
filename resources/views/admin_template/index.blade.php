@@ -1,7 +1,8 @@
 @include('admin_template.template')
 <div class='main-panel'>
 	<div class='main-panel-content' id='main'>
-		<h1>Admin dashboard</h1> </div>
+		<h1>Admin dashboard</h1> <br />
+	</div>
 </div>
 <div class='main-panel'>
 	<div class='main-panel-content' id='menus'>
@@ -82,20 +83,11 @@
 						<br />
 						<actions>
 							<div class="row">
-								<div class="col-6">
-
-									@php
-										echo "<a href='/dashboard/action:pages:update/".$items->name."'>";
-									@endphp
-
-									<button class="button-styler" style='border: none;'><i class="fas fa-edit"></i> Edit</button>
-								</a>
-								</div>
-								<div class="col-6">
+								<div class="col">
 								<form action='/dashboard/action:pages:delete' method='post'>
 								@csrf
 									@php
-										echo "<input type='hidden' name='pathway' value='".$items->name."'>";
+										echo "<input type='hidden' name='pages_delete_name' value='".$items->path."'>";
 									@endphp
 
 									<button type="submit" class="button-styler" style='border: none;'><i class="far fa-trash-alt"></i> Delete</button>
@@ -114,7 +106,16 @@
 </div>
 <div class='main-panel'>
 	<div class='main-panel-content' id='posts'>
+		<div class='main-panel-content-box'>
 		<h1>Posts</h1>
+		<a href='/dashboard/action:posts:add' style='text-decoration: none; color: white;'>
+				<div class='add-button'>
+					<div class='items'>
+						<i class="fas fa-plus" style='font-size: 12px;'></i> Add
+					</div>
+				</div>
+			</a>
+		</div>
 		<br />
 		<table class="table table-sm table-borderless">
 			<thead>
@@ -123,9 +124,10 @@
 					<th scope="col">mount_at</th>
 					<th scope="col">custom_path</th>
 					<th scope="col">title</th>
-					<th scope="col">content</th>
 					<th scope="col">author</th>
 					<th scope="col">date</th>
+					<th scope="col">edit</th>
+					<th scope="col">delete</th>
 				</tr>
 			</thead>
 			<tbody> @foreach(App\Http\Controllers\Modules\Posts::action_get_all_posts() as $items)
@@ -134,39 +136,27 @@
 					<td>{{ $items->mount_at }}</td>
 					<td>{{ $items->custom_path }}</td>
 					<td>{{ $items->title }}</td>
-					<td>{{ $items->content }}</td>
 					<td>{{ $items->author }}</td>
 					<td>{{ $items->date }}</td>
+					<td><a href='/dashboard/action:posts:update/{{ $items->id }}'><button class="button-styler-no-margin" style='border: none;'><i class="fas fa-edit"></i> Edit</button></a></td>
+					<td>
+						<form action='/dashboard/action:posts:delete' method='post'>
+						@csrf
+							<input type='hidden' name='post_id' value='{{ $items->id }}'>
+							<button type="submit" class="button-styler-no-margin" style='border: none;'>
+								<i class="far fa-trash-alt"></i> Delete
+							</button>
+						</form>
+					</td>
 				</tr> @endforeach </tbody>
 		</table>
 	</div>
 </div>
 <div class='main-panel'>
-	<div class='main-panel-content' id='comments'>
-		<h1>Comments</h1>
-		<br /> Lorem ipsum </div>
-</div>
-<div class="row">
-	<div class="col">
-		<div class='main-panel'>
-			<div class='main-panel-content' id='categories'>
-				<h1>Categories</h1>
-				<br /> Lorem Ipsum </div>
-			</p>
-		</div>
-	</div>
-	<div class="col">
-		<div class='main-panel'>
-			<div class='main-panel-content' id='tags'>
-				<h1>Tags</h1>
-				<br /> Lorem Ipsum </div>
-		</div>
-	</div>
-</div>
-<div class='main-panel'>
 	<div class='main-panel-content' id='themes'>
 		<h1>Themes</h1>
-		<br /> Lorem Ipsum </div>
+		<br /> 
+	</div>
 </div>
 <div class='main-panel'>
 	<div class='main-panel-content' id='plugins'>
@@ -188,27 +178,12 @@
 					<td> {{ $value['author'] }}</td>
 					<td> {{ $value['version'] }}</td>
 				</tr> @endforeach </tbody>
-		</table> @php print \App\Plugins\HelloWorld\HelloWorld::main(); @endphp @php print \App\Plugins\CurrentTime\CurrentTime::main(); @endphp </div>
-</div>
-<div class='main-panel'>
-	<div class='main-panel-content' id='widgets'>
-		<h1>Widgets</h1>
-		<br /> Lorem Ipsum </div>
-</div>
-<div class='main-panel'>
-	<div class='main-panel-content' id='media-lib'>
-		<h1>Media Library</h1>
-		<br /> Lorem Ipsum </div>
+		</table></div>
 </div>
 <div class='main-panel'>
 	<div class='main-panel-content' id='database'>
 		<h1>Database</h1>
 		<br /> @php App\Http\Controllers\Modules\Database::is_connection(); @endphp </div>
-</div>
-<div class='main-panel'>
-	<div class='main-panel-content' id='tools'>
-		<h1>Tools</h1>
-		<br /> Lorem Ipsum </div>
 </div>
 <div class='main-panel'>
 	<div class='main-panel-content' id='settings'>

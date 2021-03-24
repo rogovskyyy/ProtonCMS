@@ -6,7 +6,7 @@ Use Carbon\Carbon;
 
 class CurrentTime {
     public static function main() {
-        $mytime = Carbon::now();
+        $mytime = Carbon::now('Europe/Warsaw');
         return "Current date: ".$mytime->toDateTimeString()."<br />";
     }
 }
