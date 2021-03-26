@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body {
+    /* font-family: 'Source Sans Pro', sans-serif;*/
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+    font-size: 18px;
+    color: white;
+}
+
+.center {
+    text-align: center;
+    margin: auto;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    padding: 35px 35px 35px 35px;
+    margin-top: 165px;
+}
+
+.content > h1 {
+    text-align: center;
+    margin-top: 55px;
+}
+
+.content > h1 > .bolder {
+    font-weight: bold;
+    color: black;
+}
+
+.mission-content {
+    background-color: black;
+    margin-top: 125px;
+    width: 400px;
+    height: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.particles {
+    margin-left: -1090px;
+}
+
+.whatsnext {
+    margin-top: 925px;
+}
+
+.button {
+    width: 350px;
+    height: 50px;
+    background-color: black;
+    border: 1px solid grey;
+    color: grey;
+    font-size: 16px;
+}
+
+input[type=text] {
+    background-color: black;
+    border: none;
+    color: white;
+}
+
+input[type=text]:focus {
+    border: none;
+border-bottom: 1px solid grey;
+}
+
+.career-content {
+    text-align: center;
+    margin: auto;
+}
+
+.contact-content{
+    text-align: center;
+    padding-top: 225px;
+    margin-bottom: -215px;
+}

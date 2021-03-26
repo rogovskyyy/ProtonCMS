@@ -4,6 +4,8 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\Modules\Menus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Blade;
 
 
 /*
@@ -25,24 +27,27 @@ use Illuminate\Support\Facades\Route;
 
 
 class Faker {
-    private static function view() { }
-    private function add_routes($path, $filename) {
-        call_user_func_array('Route::get', [$path, fn() => view($filename)]);
-    }
-
     public function generate() {
-        $map = App\Http\Controllers\RoutesMap::map_routes();
-        $default = App\Http\Controllers\RoutesMap::default_path();
+        $result = DB::select('select pages.path, themes.content from pages, themes, settings where pages.filename = themes.filename and themes.catalog = (select settings.cfgValue from settings where settings.cfgKey = :default_template) GROUP by pages.path', [
+            "default_template" => "default_template"
+        ]);
 
-        for($i = 0; $i <= count($map) - 1; $i++) {
-            $path = $default.".".explode(".", $map[$i]['filename'])[0];
-            $this->add_routes($map[$i]['path'], $path);
+        for($i = 0; $i <= count($result) - 1; $i++) {
+            $raw = $result[$i]->content;
+            call_user_func_array('Route::get', [ 
+                $result[$i]->path, 
+                fn() => view_raw($raw, [])->render()]
+            );
         }
     }
 }
 
 $fake_route = new Faker();
 $fake_route->generate();
+
+Route::get('/test', function() {
+    return view('test.index');
+});
 
 
 Route::group(['prefix'=>'dashboard','as'=>'dashboard'], function() {
@@ -100,7 +105,7 @@ Route::group(['prefix'=>'dashboard','as'=>'dashboard'], function() {
 
     Route::post('action:themes:add', [\App\Http\Controllers\Modules\Themes\Add::class, 'add']);
 
-    Route::get('action:themes:update/{id}', [\App\Http\Controllers\Modules\Themes\Update::class, 'view']);
+    Route::get('action:themes:update/{catalog}@{filename}', [\App\Http\Controllers\Modules\Themes\Update::class, 'view']);
 
     Route::post('action:themes:update', [\App\Http\Controllers\Modules\Themes\Update::class, 'update']);
         
