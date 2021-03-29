@@ -43,7 +43,7 @@
 					</div>
 				</ul>
 				<br />
-				<div style='text-align: center; font-size: 12px; padding-bottom: 15px;'> Powered by ProtonCMS - v22.03.2021.162330
+				<div style='text-align: center; font-size: 12px; padding-bottom: 15px;'> Powered by ProtonCMS - v29.03.2021.224115
 					<br /> &copy; {{ now()->year }} <a href='https://github.com/rogovskyyy/' style='color: var(--default-font-color)'>rogovskyyy</a> - Made with <span style="color: #e25555;">&#9829;</span>
 					<br /> </div>
 			</div>
