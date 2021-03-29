@@ -164,12 +164,12 @@
 		<div class='main-panel-content-box'>
 		<h1>Themes</h1>
 		<a href='/dashboard/action:themes:add' style='text-decoration: none; color: white;'>
-				<div class='add-button'>
-					<div class='items'>
-						<i class="fas fa-plus" style='font-size: 12px;'></i> Add
-					</div>
+			<div class='add-button'>
+				<div class='items'>
+					<i class="fas fa-plus" style='font-size: 12px;'></i> Add
 				</div>
-			</a>
+			</div>
+		</a>
 		</div>
 		<br />
 		<table class="table table-sm table-borderless">

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a16c3c541bd99241cab1c21ce8e83ac",
+    "content-hash": "9b0eb8649f670b324ca821d614241b07",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2351,6 +2351,61 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "sergant210/laravel-raw-view",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sergant210/laravel-raw-view.git",
+                "reference": "edf544aeefad6564e365d799fce46d3ba54f9b1c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sergant210/laravel-raw-view/zipball/edf544aeefad6564e365d799fce46d3ba54f9b1c",
+                "reference": "edf544aeefad6564e365d799fce46d3ba54f9b1c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/view": "^7.0|^8.0",
+                "php": "~7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0|^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "RawView\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sergey Shlokov",
+                    "email": "sergant210@bk.ru",
+                    "homepage": "https://modzone.ru"
+                }
+            ],
+            "description": "It's intended to compile a view from the HTML string 'on the fly'. You don't need to create a view file.",
+            "homepage": "https://github.com/sergant210/laravel-raw-view",
+            "keywords": [
+                "blade",
+                "laravel",
+                "rawview",
+                "view"
+            ],
+            "support": {
+                "issues": "https://github.com/sergant210/laravel-raw-view/issues",
+                "source": "https://github.com/sergant210/laravel-raw-view/tree/v2.0.0"
+            },
+            "time": "2020-09-29T12:43:42+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

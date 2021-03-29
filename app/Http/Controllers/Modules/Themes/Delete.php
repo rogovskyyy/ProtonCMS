@@ -9,8 +9,11 @@ class Delete extends \App\Http\Controllers\Modules\Themes {
 
     public static function delete(Request $request) {
         if(\App\Http\Controllers\SessionController::has_session($request)) {
-                // Usuń plik z katalogu
+                DB::delete('delete from themes where themes.catalog = :catalog AND themes.filename = :filename', [
+                    "catalog" => $request->input('_catalog'),
+                    "filename" => $request->input('_filename')
+                ]);
         }
-        return redirect('/dashboard');
+        return redirect('/dashboard#themes');
     }
 }
