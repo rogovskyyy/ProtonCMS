@@ -39,10 +39,6 @@ body {
     margin: 0 auto;
 }
 
-.particles {
-    margin-left: -1090px;
-}
-
 .whatsnext {
     margin-top: 925px;
 }
@@ -76,4 +72,14 @@ border-bottom: 1px solid grey;
     text-align: center;
     padding-top: 225px;
     margin-bottom: -215px;
+}
+
+.particles {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100% ;
+    height: 100%;
 }
