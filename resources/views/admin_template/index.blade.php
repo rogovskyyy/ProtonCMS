@@ -112,7 +112,7 @@
 	</div>
 </div>
 <div class='main-panel'>
-	<div class='main-panel-content' id='pages'>
+	<div class='main-panel-content' id='posts'>
 		<div class='main-panel-content-box'>
 		<h1>Posts</h1>
 		<a href='/dashboard/action:posts:add' style='text-decoration: none; color: white;'>
@@ -160,7 +160,7 @@
 	</div>
 </div>
 <div class='main-panel'>
-	<div class='main-panel-content' id='pages'>
+	<div class='main-panel-content' id='themes'>
 		<div class='main-panel-content-box'>
 		<h1>Themes</h1>
 		<a href='/dashboard/action:themes:add' style='text-decoration: none; color: white;'>
@@ -208,6 +208,35 @@
 					<td> {{ $value['description'] }}</td>
 					<td> {{ $value['author'] }}</td>
 					<td> {{ $value['version'] }}</td>
+				</tr> @endforeach </tbody>
+		</table></div>
+</div>
+<div class='main-panel'>
+	<div class='main-panel-content' id='settings'>
+		<h1>Settings</h1>
+		<br />
+		<table class="table table-sm table-borderless">
+			<thead>
+				<tr>
+					<th scope="col">key</th>
+					<th scope="col">value</th>
+					<th scope="col">update</th>
+				</tr>
+			</thead>
+			<tbody> @foreach(\App\Http\Controllers\Modules\Settings::action_get_all_settings() as $value)
+				<tr>
+					<td> {{ $value->cfgKey }}</td>
+					<form action='/dashboard/action:settings:update' method='post'>
+						@csrf
+						<td>
+							<input type='hidden' name='_cfgkey' value="{{ $value->cfgKey }}">
+							<input type="text" class="form-control" name='_cfgvalue' value="{{ $value->cfgValue }}" style='width: 30%;'>
+						</td>
+						<td>
+							<button type='submit' class='button-styler-no-margin' style='border: none;'>Update
+						</td>
+					</form>
+
 				</tr> @endforeach </tbody>
 		</table></div>
 </div>

@@ -110,4 +110,8 @@ Route::group(['prefix'=>'dashboard','as'=>'dashboard'], function() {
     Route::post('action:themes:update', [\App\Http\Controllers\Modules\Themes\Update::class, 'update']);
         
     Route::post('action:themes:delete', [\App\Http\Controllers\Modules\Themes\Delete::class, 'delete']);
+
+
+    /*      Settings section        */
+    Route::post('action:settings:update', [\App\Http\Controllers\Modules\Settings\Update::class, 'update']);
 });

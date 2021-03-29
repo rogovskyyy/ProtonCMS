@@ -36,6 +36,11 @@
 							<li><i class="fas fa-plug"></i> Plugins</li>
 						</a>
 					</div>
+					<div class='push-to-left-panel'>
+						<a href='#settings'>
+							<li><i class="fas fa-sliders-h"></i> Settings</li>
+						</a>
+					</div>
 				</ul>
 				<br />
 				<div style='text-align: center; font-size: 12px; padding-bottom: 15px;'> Powered by ProtonCMS - v22.03.2021.162330
