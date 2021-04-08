@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Carbon;
 
 
 /*
@@ -38,6 +39,42 @@ class Faker {
                 $result[$i]->path, 
                 fn() => view_raw($raw, [])->render()]
             );
+        }
+
+        $result = DB::select('select * from posts');
+        if(count($result) > 0) {
+
+            $context = DB::select('select content from themes where themes.catalog = :default_theme AND filename = :blog LIMIT 1', [
+                "default_theme" => "default_theme",
+                "blog" => "blog.blade.php"
+            ]);
+
+            for($i = 0; $i <= count($result) - 1; $i++) {
+                $blog = DB::select('select * from posts where id = :id', [
+                    "id" => $result[$i]->id
+                ]);
+
+                $blog = json_decode(json_encode($blog), true);
+
+                $raw = $context[0]->content;
+                $date = Carbon::createFromFormat('Y-m-d H:i:s', $result[$i]->date);
+                $fullPath = $result[$i]->mount_at."/".$date->year."/".$date->month."/".$date->day."/".$result[$i]->id;
+                call_user_func_array('Route::get', [ 
+                    $fullPath, 
+                    fn() => view_raw($raw, $blog[0])->render()]
+                );
+
+                $raw = $context[0]->content;
+                $fullPath = $result[$i]->mount_at."".$result[$i]->custom_path;
+                call_user_func_array('Route::get', [ 
+                    $fullPath, 
+                    fn() => view_raw($raw, $blog[0])->render()]
+                );
+            }
+        } 
+        else 
+        {
+            return [];
         }
     }
 }
